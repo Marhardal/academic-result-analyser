@@ -30,11 +30,31 @@ Maths_rst = df[df["Subject"] == "Math"]
 # Filter students who failed  science
 Science_rst =  df[(df["Subject"] == "Science") & (df["Passed"] == False)]
 
-print(Science_rst)
+# print(Science_rst)
 # print(Science_rst)
 
 student_p = df[df["Score"] > 80]
 
 # print(student_p)
 
+# Average Scores
+# print(load.groupby(load["Subject"]))
+# maths_avg = df[df["Subject"] == "Math"]["Score"]
+# print(maths_avg.sum()/maths_avg.count())
 
+# maths_avg = df[df["Subject"] == "Math"]["Score"]
+# print(maths_avg.sum()/maths_avg.count())
+
+# print(load)
+
+# Average subject score 
+# for subject in set(load["Subject"]):
+#     scores = df[df["Subject"] == subject]["Score"]
+#     avg = scores.sum()/scores.count()
+#     print(avg)
+
+# Average Student Scores
+for student in set(load["Name"]):
+    ttl_scores = (df[df["Name"] == student]["Score"]).sum();
+    count_scores = (df[df["Name"] == student]["Score"]).count();
+    print(student, "Average Score is",  ttl_scores / count_scores)
