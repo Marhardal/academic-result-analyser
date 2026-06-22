@@ -15,7 +15,7 @@ load = pd.read_excel(file)
 listscore = load["Score"]
 average = listscore.sum()/listscore.count()
 # print(average)
-print(listscore.mean())
+# print(listscore.mean())
 
 df = pd.DataFrame(load)
 # Filter stodents who passed
@@ -25,6 +25,16 @@ student_p = df[df["Passed"] == True]
 # Filter Maths Result
 Maths_rst = df[df["Subject"] == "Math"]
 
-print(Maths_rst)
+# print(Maths_rst)
+
+# Filter students who failed  science
+Science_rst =  df[(df["Subject"] == "Science") & (df["Passed"] == False)]
+
+print(Science_rst)
+# print(Science_rst)
+
+student_p = df[df["Score"] > 80]
+
+# print(student_p)
 
 
